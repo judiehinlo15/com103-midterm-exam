@@ -1,18 +1,25 @@
-student_name = input("Enter your name: ")
+while True:
+    student_name = input("Enter your name: ").strip()
+    if student_name == "":
+        print("Invalid entry. Please enter your name.")
+    else:
+        break
 
 while True:
-    try:
-        weekly_budget = float(input("Enter your weekly budget: "))
+    weekly_budget = input("Enter your weekly budget: ").strip()
+
+    if weekly_budget.replace('.', '', 1).isdigit():
+        weekly_budget = float(weekly_budget)
         break
-    except ValueError:
-        print("Invalid input. Please enter a number.")
+    else:
+        print("Invalid input. Please enter a valid number.")
 
 categories = {
     1: "Food",
     2: "Transportation",
-    3: "School Supplies",
-    4: "Entertainment",
-    5: "Other"
+    3: "Mobile/Internet",
+    4: "School Supplies",
+    5: "Entertainment"
 }
 
 print("\nWeekly Expenses Categories")
